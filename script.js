@@ -6,7 +6,7 @@ const list = document.querySelector(".list-group");
 const input = document.querySelector("#inputGroupFile01");
 
 const dataFromServer = async () => {
-  const fetchData = await fetch("http://127.0.0.1:3000/users");
+  const fetchData = await fetch("https://node-project-uk3m.onrender.com/users");
   const data = await fetchData.json();
 
   for (let i = 0; i < data.length; i++) {
@@ -32,7 +32,7 @@ const dataFromServer = async () => {
     });
 
     const fetchForDelete = async () => {
-      const fet = await fetch("http://127.0.0.1:3000/users", {
+      const fet = await fetch("https://node-project-uk3m.onrender.com/users", {
         method: "DELETE",
         body: JSON.stringify({
           usrName: data[i].usrName,
@@ -52,7 +52,7 @@ dataFromServer();
 
 let userData;
 const registerUser = async () => {
-  const response = await fetch("http://127.0.0.1:3000/users", {
+  const response = await fetch("https://node-project-uk3m.onrender.com/users", {
     method: "POST",
     body: JSON.stringify(userData),
   });
@@ -72,20 +72,23 @@ btn.addEventListener("click", () => {
   };
 
   const fileuplaod = async () => {
-    const fetchForFileupload = await fetch("http://127.0.0.1:3000/fileupload", {
-      method: "POST",
-      body: input.files[0],
-    });
+    const fetchForFileupload = await fetch(
+      "https://node-project-uk3m.onrender.com/fileupload",
+      {
+        method: "POST",
+        body: input.files[0],
+      }
+    );
 
     console.log(await fetchForFileupload.json());
   };
 
   const fetchForUpdate = async () => {
-    const fetcH = await fetch("http://127.0.0.1:3000/users");
+    const fetcH = await fetch("https://node-project-uk3m.onrender.com/users");
     const fetchData = await fetcH.json();
     const emailThatIhave = fetchData.find((usr) => usr.usrEmail === emailVal);
     if (emailThatIhave) {
-      await fetch("http://127.0.0.1:3000/users", {
+      await fetch("https://node-project-uk3m.onrender.com/users", {
         method: "PUT",
         body: JSON.stringify({
           newName: nameVal,
