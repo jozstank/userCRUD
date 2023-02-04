@@ -88,7 +88,7 @@ btn.addEventListener("click", () => {
     const fetchData = await fetcH.json();
     const emailThatIhave = fetchData.find((usr) => usr.usrEmail === emailVal);
     if (emailThatIhave) {
-      await fetch("https://node-project-uk3m.onrender.com/users", {
+      await fetch("https://node-project-fikx.onrender.com/users", {
         method: "PUT",
         body: JSON.stringify({
           newName: nameVal,
