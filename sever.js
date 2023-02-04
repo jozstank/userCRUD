@@ -28,6 +28,10 @@ const users = [
 ];
 
 const sever = http.createServer((req, res) => {
+     res.writeHead(200, { "Content-Type": "application/json" });
+      res.write(`<p>${JSON.stringify(users)}</p>`);
+      res.end();
+  /*
   if (req.url === "/" || req.url === "/index") {
     fs.readFile("index.html", (err, data) => {
       res.writeHead(200, { "Content-Type": "text/html" });
@@ -116,7 +120,7 @@ const sever = http.createServer((req, res) => {
     res.writeHead(500);
     res.write("<h1>Page not found</h1>");
     res.end();
-  }
+  }*/
 });
 sever.listen(3000, () => {
   console.log("sever is running on port 3000");
